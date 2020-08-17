@@ -1,0 +1,47 @@
+<div *ngIf="items?.length > 0;else noItems">
+  <div class="card col-md-12" *ngFor="let item of items">
+      <div class="card-body">
+        <h5 class="card-title">{{item.title | uppercase}}</h5>
+        <h5 class="card-subtitle mb-2 text-muted">By: {{item.author}}</h5>
+        <p class="card-text"> <strong>Description: </strong>  <br> {{item.description}}</p>
+        <button type="submit" class="btn btn-default btn-edit" (click)="editItem($event, item)"
+         [disabled]="click">Edit</button>
+        
+        <div *ngIf="editState && itemToEdit.id == item.id">
+          <form (ngSubmit)="updateItem(item)">
+            <div class="row">
+              <div class="input-field col-md-6">
+                  <input type="text" placeholder="Add Book Tit" [(ngModel)]="item.title" name="title">    
+              </div>
+  
+              <div class="input-field col-md-6">
+                  <input type="text" placeholder="Add Book Author" [(ngModel)]="item.author" name="author">
+              </div>
+  
+              <div class="input-field col-md-12">
+                <textarea class="form-control" [(ngModel)]="item.description" name="description" rows="6"></textarea>   
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary blue pull-left col-3" >Update Book</button>
+              <button (click)="deleteItem($event, item)" class="btn btn-primary red text-center col-3">Delete Book</button>
+              <button (click)="clearState()" *ngIf="editState && itemToEdit.id == item.id" class="btn btn-primary orange pull-right col-3">Close</button>
+            </div>
+
+          </form>
+        </div>
+
+
+      
+      </div>
+    
+   
+  </div>
+</div>
+
+
+ <ng-template #noItems>
+  <hr>
+  <h5>There are no Book on list</h5>
+</ng-template>

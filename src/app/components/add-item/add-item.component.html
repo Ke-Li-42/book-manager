@@ -1,0 +1,33 @@
+
+    <div class="card col-md-12">
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()">
+                <span class="card-title">Add Book</span>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Title</label>
+                        <input type="text" placeholder="Add Book Title" [(ngModel)]="item.title" name="title">
+
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                        <label>Author</label>
+                        <input type="text" placeholder="Add Book Author" [(ngModel)]="item.author" name="author">
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" placeholder="Add Book Description" [(ngModel)]="item.description" name="description">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+        
+                
+            </form>
+           
+        </div>
+    
+    </div>

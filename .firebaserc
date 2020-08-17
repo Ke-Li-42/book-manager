@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "firestorepj": {
+      "hosting": {
+        "angularfs": [
+          "firestorepj"
+        ]
+      }
+    }
+  }
+}
